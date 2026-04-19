@@ -1,0 +1,7 @@
+CLAUDE.md
+presentation.txt
+__pycache__/
+*.pyc
+.venv/
+.vscode/
+.idea/
