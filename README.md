@@ -74,10 +74,9 @@ To turn this into a real planner you'd need: flight time (derivable from distanc
 
 ```
 .
-├── main.py           # exploration + analysis + plotting
 ├── data/             # Kaggle CSVs
 ├── plots/            # 8 output figures
-└── README.md
+└── main.py           # exploration + analysis + plotting
 ```
 
 ---
