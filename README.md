@@ -36,20 +36,26 @@ Single public Kaggle dataset (no scraping):
 
 ## Results
 
-| # | Question | Answer |
-|---|----------|--------|
-| Q1 | Routes with ≤ 2 stops | LIS–CDG: **4,306** · LIS–SYD: **281** |
-| Q2 | Detour from straight line | mean **21%** · median **6%** |
-| Q3 | Top transfer hubs | CDG · IST · GRU · SVO · PEK · AMS · MEX |
-| Q4 | Reachable in ≤ 2 stops | **82%** of pairs yes, **18%** no |
-| Q5 | Cost of adding stops | LIS–CDG 197 € → 266 € (+35%) · MAD–PEK 970 € → 1,031 € (+6%) |
-| Q6 | Extremes | Longest direct **SYD–DFW 13,808 km** · shortest pair forced to 2 stops **BLA–TAB 491 km** |
+**The network is remarkably efficient.** Accepting up to two stops costs very little distance: the best 2-stop route is only **6% longer than the straight line** (median across 3,540 pairs tested). Half the time, the detour is essentially invisible.
 
-**Lisbon → Sydney** (18,176 km straight-line):
-- East via Dubai — 18,182 km, 1 stop, **+0.03%** over the great circle.
-- West via Americas/Pacific — 21,261 km, 2 stops, **+17%**.
+**Seven airports carry global transfers.** Ranked by appearances as the middle stop on the shortest path: Paris CDG, Istanbul, São Paulo Guarulhos, Moscow Domodedovo, Beijing, Amsterdam, Mexico City. European hubs and the Gulf dominate intercontinental connections; US airports are in the top-degree list (JFK, ATL, EWR) but rarely act as international transfer points — they mostly feed domestic traffic.
 
-The east-bound route wins — literally why flights from Europe to Australia go through the Gulf.
+**The world is 82% reachable in ≤ 2 stops.** Of 3,540 large-airport pairs sampled, 2,886 have a viable path; the remaining 654 involve peripheral regions that need three hops or more. "Two stops" is close to, but not quite, universal coverage.
+
+**Route volume collapses with distance.** Lisbon–Paris has **4,306** routes up to 2 stops; Lisbon–Sydney has only **281**. Far-flung pairs are served by a thin set of corridors.
+
+**Extra stops are cheap on long-haul, expensive on short-haul — partly a modelling artifact.** Under the flat-fee cost rule, Madrid–Beijing barely moves (970 € → 1,031 €, **+6%**) while Lisbon–Paris jumps sharply (197 € → 266 €, **+35%**). Switch the per-stop fee to a percentage of distance and the gap disappears (+19% vs +21%). The claim *"stops hurt less on long-haul"* is a property of the formula, not the geography.
+
+**Network extremes.** Longest non-stop flight: **Sydney–Dallas, 13,808 km**. Shortest pair that *forces* two stops: Barcelona (Venezuela) → Porlamar → Port of Spain → Tobago, a total of **491 km** — the geography leaves no shorter option within the large-airport network.
+
+### Case study: Lisbon → Sydney
+
+Straight-line distance: **18,176 km**.
+
+- East via Dubai — LIS → DXB → SYD, 18,182 km, 1 stop → **+0.03%** over the great circle.
+- West via Montreal and San Francisco — LIS → YUL → SFO → SYD, 21,261 km, 2 stops → **+17%**.
+
+The east-bound route wins by a huge margin — an extra 3,000 km and one extra stop the other way. This is literally why flights from Europe to Australia go through the Gulf and not across the Pacific.
 
 ---
 
